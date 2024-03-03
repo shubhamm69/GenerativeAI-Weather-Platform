@@ -27,7 +27,7 @@ The Generative AI Weather Platform is designed to provide real-time weather data
 
 To install and set up the Generative AI Weather Platform, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/GenerativeAI-Weather-Platform.git`
+1. Clone the repository: `git clone https://github.com/shubhamm69/GenerativeAI-Weather-Platform.git`
 2. Install the required dependencies: `npm install`
 3. Connect the Arduino board with the DHT sensor to your computer
 4. Configure the Arduino board and sensor settings in the `config.js` file
