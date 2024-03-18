@@ -18,6 +18,9 @@ import { ModeToggle } from "@/components/ui/ModeToggle"
 import { Button } from "@/components/ui/button"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Rocket } from "lucide-react"
+import { SignOutButton, UserButton, useAuth } from "@clerk/nextjs"
+import { useRouter } from "next/navigation"
+import { Profile } from "./Profile"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -29,6 +32,18 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function NavBar() {
+    const { userId, sessionId } = useAuth();
+    const router = useRouter();
+    if (!userId) {
+        router.push("/");
+        return null;
+    }
+
+    if(!sessionId){
+        router.push("/");
+        return null;
+    }
+
     return (
         <div className="flex min-w-full justify-between p-2 border-b z-10">
             <Dialog>
@@ -52,6 +67,14 @@ export function NavBar() {
                             <Link href="/contact-us">
                                 <Button variant="outline" className="w-full">Contact Us</Button>
                             </Link>
+                        </DialogClose>
+                        <DialogClose asChild>
+                            <Link href="/">
+                                <SignOutButton signOutOptions={{ sessionId }} >
+                                    <Button variant="destructive" className="w-full">Log Out</Button>
+                                </SignOutButton>
+                            </Link>
+
                         </DialogClose>
                     </div>
                 </SheetContent>
@@ -79,7 +102,8 @@ export function NavBar() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="flex items-center gap-3">
-                {/* {userId && <Profile />} For adding profile*/} 
+                {/* {userId && <Profile />} For adding profile*/}
+                {userId && <Profile />}
                 <ModeToggle />
             </div>
         </div>
