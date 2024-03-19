@@ -1,10 +1,9 @@
 import OpenAI from "openai";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import axios from "axios";
 
 import { ChatCompletionSystemMessageParam } from "openai/resources/index.mjs";
-import { getData } from "../esp/route";
+import { getData } from "@/lib/getData";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
