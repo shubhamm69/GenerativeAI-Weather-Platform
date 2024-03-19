@@ -11,11 +11,18 @@ const openai = new OpenAI({
 
 async function getInstructionMessage(): Promise<ChatCompletionSystemMessageParam> {
   const data = await getData();
-  console.log("Chat Data:" + data)
-  return {
-    role: "system",
-    content: `You are a Weather Report Assistant. I will give you questions related to weather and you will answer them based on the ${data.temperature} temperature and ${data.humidity} humidity. This is the real time information.`,
-  };
+  console.log("Chat Data:" + data);
+  if (data) {
+    return {
+      role: "system",
+      content: `You are a Weather Report Assistant. I will give you questions related to weather and you will answer them based on the ${data.temperature} temperature and ${data.humidity} humidity. This is the real time information.`,
+    };
+  } else {
+    return {
+      role: "system",
+      content: "You are a Weather Report Assistant. I will give you questions related to weather and you will answer them.",
+    };
+  }
 }
 
 export async function POST(req: Request) {
