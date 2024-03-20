@@ -59,13 +59,13 @@ export function NavBar() {
                     </SheetHeader>
                     <div className="flex flex-col space-y-3 mt-[1rem]">
                         <DialogClose asChild>
-                            <Link href="/">
+                            <Link href="/dashboard">
                                 <Button variant="outline" className="w-full">Home</Button>
                             </Link>
                         </DialogClose>
                         <DialogClose asChild>
-                            <Link href="/contact-us">
-                                <Button variant="outline" className="w-full">Contact Us</Button>
+                            <Link href="/chat">
+                                <Button variant="outline" className="w-full">Chat</Button>
                             </Link>
                         </DialogClose>
                         <DialogClose asChild>
@@ -82,20 +82,20 @@ export function NavBar() {
 
             <NavigationMenu>
                 <NavigationMenuList className="max-[825px]:hidden ">
-                    <Link href="/" className="pl-2">
+                    <Link href="/dashboard" className="pl-2">
                         <Rocket />
                     </Link>
                     <NavigationMenuItem>
-                        <Link href="/#pricing" legacyBehavior passHref className="cursor-pointer">
+                        <Link href="/dashboard" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Pricing
+                                Dashboard
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <Link href="/contact-us" legacyBehavior passHref className="cursor-pointer">
+                        <Link href="/chat" legacyBehavior passHref className="cursor-pointer">
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Contact Us
+                                Chat
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
