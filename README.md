@@ -1,6 +1,6 @@
 # Generative AI Weather Platform
 
-This project aims to create a Generative AI Weather Platform that integrates with IoT devices, specifically Arduino and DHT sensor, to sense humidity and temperature.
+This project aims to create a Generative AI Weather Platform that integrates with IoT devices, specifically ESP32 and DHT sensor, to sense humidity and temperature.
 
 ## Table of Contents
 
